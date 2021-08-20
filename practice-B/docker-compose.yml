@@ -1,8 +1,8 @@
 version: "3.3"
 services:
-    push-server:
+    publisher:
         image: cefore/cache
-        container_name: "push-server"
+        container_name: "publisher"
         working_dir: "/cefore"
         volumes: 
             - ${node_bindir:-$(pwd)}/bin/:/cefore/bin
@@ -10,9 +10,9 @@ services:
         networks:
             downward:
               ipv4_address: 10.0.1.10
-    push-consumer:
+    consumer:
         image: cefore/min
-        container_name: "push-consumer"
+        container_name: "consumer"
         working_dir: "/cefore"
         volumes: 
             - ${node_bindir:-$(pwd)}/bin/:/cefore/bin

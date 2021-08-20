@@ -2,7 +2,7 @@
 
 set -e
 
-for target in base min cache; do
+for target in base min cache csmgr; do
     (
         cd "$target"
         pwd
