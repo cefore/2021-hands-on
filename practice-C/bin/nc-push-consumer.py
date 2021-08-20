@@ -59,7 +59,7 @@ with cefpyco.create_handle() as handle:
 	
 	while True:
 
-		info = handle.receive(timeout_ms=4000)
+		info = handle.receive(timeout_ms=8000)
 
 		if info.is_succeeded:
 			tp_mode = None
