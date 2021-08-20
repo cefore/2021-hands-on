@@ -9,7 +9,6 @@ RUN ldconfig
 WORKDIR /cefore/cefpyco
 RUN cmake .
 RUN make install
-RUN
 ENV USER root
 COPY ./entrypoint.bash /cefore
 ENTRYPOINT /cefore/entrypoint.bash
