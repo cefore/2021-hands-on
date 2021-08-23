@@ -59,7 +59,11 @@ with cefpyco.create_handle() as handle:
 	
 	while True:
 
+<<<<<<< HEAD
 		info = handle.receive(timeout_ms=4000)
+=======
+		info = handle.receive(timeout_ms=8000)
+>>>>>>> da38de6e56fb512d764623fc03448307b1146cce
 
 		if info.is_succeeded:
 			tp_mode = None
@@ -108,3 +112,7 @@ with cefpyco.create_handle() as handle:
 		else:
 			print ("FAIL: failed to receive Interests from a Push-Server, the name prefix is ccnx:/" + UniqueId)
 			break
+<<<<<<< HEAD
+=======
+
+>>>>>>> da38de6e56fb512d764623fc03448307b1146cce
