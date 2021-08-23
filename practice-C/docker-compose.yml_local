@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+    push-server:
+        image: cefore/cache
+        container_name: "push-server"
+        working_dir: "/cefore"
+        volumes: 
+            - ${node_bindir:-$(pwd)}/bin/:/cefore/bin
+            - /tmp/log:/tmp/log
+        networks:
+            downward:
+              ipv4_address: 10.0.1.10
+    push-consumer:
+        image: cefore/min
+        container_name: "push-consumer"
+        working_dir: "/cefore"
+        volumes: 
+            - ${node_bindir:-$(pwd)}/bin/:/cefore/bin
+            - /tmp/log:/tmp/log
+        networks:
+            downward:
+              ipv4_address: 10.0.1.100
+
+networks:
+    downward:
+      name: downward
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+          - subnet: 10.0.1.0/24
+    
