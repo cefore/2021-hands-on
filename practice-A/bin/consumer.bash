@@ -14,4 +14,4 @@ cefroute add ccnx:/stream tcp 133.69.33.120
 cefstatus -v
 cefstatus
 
-cefgetstream ccnx:/stream -z 2 >/tmp/log/bbb.mp4
+# cefgetstream ccnx:/stream -z 2 >/tmp/log/bbb.mp4
