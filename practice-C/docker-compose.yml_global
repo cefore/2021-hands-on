@@ -2,7 +2,7 @@ version: "3.3"
 services:
     push-consumer:
         image: cefore/min
-        container_name: "push-consumer"
+        container_name: "nc-push-consumer"
         working_dir: "/cefore"
         volumes: 
             - ${node_bindir:-$(pwd)}/bin/:/cefore/bin
