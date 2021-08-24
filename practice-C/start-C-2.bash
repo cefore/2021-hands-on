@@ -10,5 +10,5 @@ docker-compose build
 docker-compose up -d
 docker ps -a | sed -E 's/ ( +)/\1|/g' | cut -f 1,2,4,5 -d "|" | sed -E 's/ +$//g'
 
-docker exec push-consumer /cefore/bin/push-consumer.bash
+docker exec nc-push-consumer /cefore/bin/push-consumer.bash
 
