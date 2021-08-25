@@ -12,7 +12,8 @@ do
     
     if [ -e /tmp/log/bbb.mp4 ]; then
 	playback_count=$(expr $playback_count + 1)
-	ffplay /tmp/log/bbb.mp4
+	# ffplay -an /tmp/log/bbb.mp4
+	ffplay -volume 10 /tmp/log/bbb.mp4
     else
 	echo -n "."
 	sleep 2
