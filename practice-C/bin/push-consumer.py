@@ -23,7 +23,7 @@ with cefpyco.create_handle() as handle:
 
 	#interestName = "ccnx:/CACHE/" + str(pushDataNum) + pushDataNameSuffix 
 	interestName = "ccnx:" + functionName + "/" + str(pushDataNum) + pushDataNameSuffix 
-	print("Send an Intrest with the name: " + interestName)
+	print("Send an Intrest with a name: " + interestName)
 	handle.send_interest(interestName, 0)
   
 	recvInterestNum = 0 
