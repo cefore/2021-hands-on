@@ -16,10 +16,10 @@ if pgrep docker > /dev/null; then :; else
 fi
 
 # Remove containers if already exists.
-_res="$(docker ps -aq --filter 'name=b-*')"
+_res="$(docker ps -aq --filter 'name=b-consumer|b-router|b-producer')"
 if [[ -n "${_res}" ]]; then
     echoW "Docker containers already exists."
-    docker ps -a --filter 'name=b-*'
+    docker ps -a --filter 'name=b-consumer|b-router|b-producer'
     echoW "Recreate the containers? (y/N)"
     read -n 1 _res
     echo
@@ -37,7 +37,7 @@ echoI "Compose docker containers."
 _read_yml | docker-compose -f - up -d
 
 echoI "Check docker containers are up."
-docker ps --filter 'name=b-*'
+docker ps --filter 'name=b-consumer|b-router|b-producer'
 _is_container_down() {
     _res="$(docker ps -q --filter "name=$1")"
     if [[ -n "${_res}" ]]; then
