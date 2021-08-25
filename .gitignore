@@ -1,7 +1,4 @@
 .DS_Store
 .vscode/
-.bash~
-.py~
-.yml~
-Dockerfile~
+*~
 ~$*.pptx
