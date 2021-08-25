@@ -18,12 +18,12 @@ with cefpyco.create_handle() as handle:
 
 	Name_PushData = "ccnx:" + pushDataNameSuffix 
  
-	print("Interest Name to be received: " + Name_PushData)
+	print("The name of Interest to be received: " + Name_PushData)
 	handle.register(Name_PushData)
 
 	#interestName = "ccnx:/CACHE/" + str(pushDataNum) + pushDataNameSuffix 
 	interestName = "ccnx:" + functionName + "/" + str(pushDataNum) + pushDataNameSuffix 
-	print("Intrest Name to send: " + interestName)
+	print("Send an Intrest with a name: " + interestName)
 	handle.send_interest(interestName, 0)
   
 	recvInterestNum = 0 
