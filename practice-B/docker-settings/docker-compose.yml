@@ -1,0 +1,55 @@
+version: "3.3"
+services:
+    producer:
+        build: ./docker-settings/practice-b
+        image: cefore/practice-b
+        container_name: "b-producer"
+        hostname: "b-producer"
+        working_dir: "/cefore"
+        tty: true
+        volumes: 
+            - ./bin/:/cefore/bin
+        networks:
+            upward:
+              ipv4_address: 10.0.1.102
+    router:
+        image: cefore/practice-b
+        container_name: "b-router"
+        hostname: "b-router"
+        working_dir: "/cefore"
+        tty: true
+        volumes: 
+            - ./bin/:/cefore/bin
+        networks:
+            upward:
+              ipv4_address: 10.0.1.101
+            downward:
+              ipv4_address: 10.0.0.101
+    consumer:
+        image: cefore/practice-b
+        container_name: "b-consumer"
+        hostname: "b-consumer"
+        working_dir: "/cefore"
+        tty: true
+        volumes: 
+            - ./bin/:/cefore/bin
+        networks:
+            downward:
+              ipv4_address: 10.0.0.102
+
+networks:
+    upward:
+      name: upward
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+          - subnet: 10.0.1.0/24
+    downward:
+      name: downward
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+          - subnet: 10.0.0.0/24
+    
