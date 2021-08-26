@@ -3,6 +3,7 @@ services:
     consumer:
         image: cefore/min
         container_name: "consumer"
+        hostname: "consumer"
         working_dir: "/cefore"
         volumes: 
             - ${node_bindir:-$(pwd)}/bin/:/cefore/bin

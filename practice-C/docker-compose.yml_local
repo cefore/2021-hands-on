@@ -3,6 +3,7 @@ services:
     push-server:
         image: cefore/cache
         container_name: "push-server"
+        hostname: "push-server"	
         working_dir: "/cefore"
         volumes: 
             - ${node_bindir:-$(pwd)}/bin/:/cefore/bin
@@ -13,6 +14,7 @@ services:
     push-consumer:
         image: cefore/min
         container_name: "push-consumer"
+        hostname: "push-consumer"		
         working_dir: "/cefore"
         volumes: 
             - ${node_bindir:-$(pwd)}/bin/:/cefore/bin
